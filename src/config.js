@@ -1,6 +1,9 @@
 let config = {};
 config.contract = {
-	address: /*"0xf36Eb7f366C3e5d98f80f3C1441D25e0880fC1ad"<-matic main net deployment "0xC35484215BbFBAFcbdC6a31D32897E54ae06159f",//<-rinkeby deployment */"0x48bb543B351662C96868b05e0f1beCc05a24A26b", //kovan deployment
+	address: /*"0xf36Eb7f366C3e5d98f80f3C1441D25e0880fC1ad"<-matic main net deployment 
+	 * "0xC35484215BbFBAFcbdC6a31D32897E54ae06159f",//<-rinkeby deployment 
+	 * "0x48bb543B351662C96868b05e0f1beCc05a24A26b" kovan deployment*/
+		0x32A8B8b2e8e3A293343D28E7724876C707c65eF3,//kovan deployment for Chirag
 	abi: [
 		{
 			"inputs": [],

@@ -23,7 +23,7 @@ function App() {
 
     useEffect(() => {
 
-        biconomy = new Biconomy(window.ethereum, { apiKey: "EEx4HcTA2.1edb119a-55c0-45e7-9e75-e1bb4204ffb3", strictMode: false, debug: true });
+        biconomy = new Biconomy(window.ethereum, { apiKey: "D8IRqCsUK.34c6c4ce-f50d-4d52-9a88-d409edd1d622", strictMode: false, debug: true });
 
         web3 = new Web3(biconomy);
 

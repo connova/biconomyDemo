@@ -9,13 +9,13 @@ const Navbar = () => {
 
             <li>
 
-                <Link to="/">Krater Admin Panel</Link>
+                <Link to="/KraterAdmin">Krater Admin Panel</Link>
 
             </li>
             
             <li>
 
-                <Link to="/ ">Alchemy</Link>
+                <Link to="/Alchemy">Alchemy</Link>
 
             </li>
 

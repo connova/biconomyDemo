@@ -41,19 +41,20 @@ const KraterAdmin = () => {
     const [farmToPayTreasury, setFarmToPayTreasury] = useState<string>();
   
     useEffect(() => {
-  
-      biconomy = new Biconomy(window.ethereum as ExternalProvider, { 
-        
+
+      if(typeof window.ethereum !== 'undefined') {
+
+        biconomy = new Biconomy(window.ethereum as ExternalProvider, { 
+      
           apiKey: "wNVpQx3oM.b2288b97-79f6-4964-a619-c905eaf05761", 
           strictMode: false, 
           debug: true, 
           contractAddresses: ["0x6c984751588d584bead41cb7ff77d28dbe8a0b6f"]
-        }
-  
-      );
-      
+        
+        });
+        
         setOwner(window.ethereum.selectedAddress);
-   
+    
         web3 = new Web3(biconomy.provider);
         contract = new web3.eth.Contract(
           
@@ -63,10 +64,16 @@ const KraterAdmin = () => {
         );
   
         initializeBiconomy();
+        
+      } else {
+
+        alert('No web3 installed');
+
+      }
   
-    }
-      , []);
   
+    }, []);
+
     async function initializeBiconomy() {
   
       await biconomy.init();
@@ -75,12 +82,18 @@ const KraterAdmin = () => {
     }
   
   
+    if (
+
+      typeof web3 !== 'undefined'
+    ) {
+
+      window.ethereum.on('accountsChanged', (accounts) => {
   
-    window.ethereum.on('accountsChanged', (accounts) => {
-  
-      setOwner(accounts); 
-  
-    });
+        setOwner(accounts); 
+    
+      });
+
+    }
   
   
     async function createTreasury(e) {
@@ -196,6 +209,7 @@ const KraterAdmin = () => {
   
   
     }
+    
 
     return(
 

@@ -94,7 +94,16 @@ const KraterAdmin = () => {
       });
 
     }
-  
+
+    async function getAccounts() {
+
+      window.ethereum.request({ method: 'eth_requestAccounts'}).then(accounts => {
+
+        setOwner(accounts);
+        
+      })
+
+    }
   
     async function createTreasury(e) {
   
@@ -214,6 +223,8 @@ const KraterAdmin = () => {
     return(
 
         <div>
+
+          <button id='connectButton' onClick={e => getAccounts()} >Connect Wallet</button>
 
           <p>Account: {owner}</p>
           

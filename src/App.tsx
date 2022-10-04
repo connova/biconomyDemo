@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar.js"
 import KraterAdmin from "./pages/KraterAdmin";
 import Alchemy from "./pages/Alchemy";
+import Marketplace from "./pages/Marketplace";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
 
             <Route path="/KraterAdmin" element={<KraterAdmin />} />
             <Route path="/Alchemy" element={<Alchemy />}  />
+            <Route path="/Marketplace" element={<Marketplace />} />
 
           </Routes>
 

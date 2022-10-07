@@ -1,0 +1,1 @@
+Need to update frontend to take array as state value for miningUsers

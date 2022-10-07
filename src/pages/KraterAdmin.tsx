@@ -56,13 +56,14 @@ const KraterAdmin = () => {
         setOwner(window.ethereum.selectedAddress);
     
         web3 = new Web3(biconomy.provider);
+        
         contract = new web3.eth.Contract(
           
           config.contract.abi, 
           config.contract.address
           
         );
-  
+
         initializeBiconomy();
         
       } else {
@@ -85,6 +86,7 @@ const KraterAdmin = () => {
     if (
 
       typeof web3 !== 'undefined'
+
     ) {
 
       window.ethereum.on('accountsChanged', (accounts) => {
@@ -100,7 +102,7 @@ const KraterAdmin = () => {
       window.ethereum.request({ method: 'eth_requestAccounts'}).then(accounts => {
 
         setOwner(accounts);
-        
+         
       })
 
     }
@@ -253,9 +255,9 @@ const KraterAdmin = () => {
             <form onSubmit={e => {handleSubmit4WhitelistingMinier(e)}}>
 
               <label htmlFor="miningUser">Mining User Address: </label>
-              <input type="text" id="miningUser" onChange={e => setMiningUsers(e.target.value)} />
+              <input type="number" id="miningUser" onChange={e => setMiningUsers(e.target.value)} />
 
-              <br />
+              <br />  
 
               <input type="submit" value="Submit User Address" />
 

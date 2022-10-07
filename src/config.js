@@ -610,5 +610,147 @@ config.contract = {
 	]
 }
 
+config.Marketplace = {
+	addressMarketplace: "0xcb8289CbF435B453CF92853b2497784FeDD53194",
+	addressMarketplaceTreasury: "0x54C968B5be079CB6ED56BFD95e7c04D4005f499E",
+	abiMarketplace: [
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_masterContract",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "_trustedForwarder",
+					"type": "address"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "constructor"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "workerNFTId",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "address",
+					"name": "seller",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "address",
+					"name": "buyer",
+					"type": "address"
+				}
+			],
+			"name": "WorkerPurchased",
+			"type": "event"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "stableCoinToken",
+					"type": "address"
+				}
+			],
+			"name": "approveMasterForTreasuryFeeWithdrawal",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "_workerNFTId",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "stableCoinToken",
+					"type": "address"
+				}
+			],
+			"name": "buyFromSale",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "forwarder",
+					"type": "address"
+				}
+			],
+			"name": "isTrustedForwarder",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "_workerNFTId",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_price",
+					"type": "uint256"
+				}
+			],
+			"name": "startSale",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "newMaster",
+					"type": "address"
+				}
+			],
+			"name": "updateMaster",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "newTreasuryFeePercentage",
+					"type": "uint256"
+				}
+			],
+			"name": "updateTreasuryFee",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		}
+	]
+}
+
 
 module.exports = { config }

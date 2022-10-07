@@ -4,7 +4,7 @@ import Web3 from 'web3'//changed from web3-eth to web3
 import { Biconomy } from "@biconomy/mexa";
 declare let window: any
 
-import { config } from "../config";
+const { config } = require("../config");
 
 let biconomy;
 let web3;
@@ -140,8 +140,6 @@ const Marketplace = () => {
                 <input type="text" id="sellWorker" onChange={e => setMinerToSell(e.target.value)} />
                 <label htmlFor="setPrice">Set Price: </label>
                 <input type="text" id="setPrice" onChange={e => setPrice(e.target.value)} />
-
-                <br />
 
                 <input type="submit" value="Sell Worker" />
 

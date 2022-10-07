@@ -610,7 +610,7 @@ config.contract = {
 	]
 }
 
-config.Marketplace = {
+config.marketplace = {
 	addressMarketplace: "0xcb8289CbF435B453CF92853b2497784FeDD53194",
 	addressMarketplaceTreasury: "0x54C968B5be079CB6ED56BFD95e7c04D4005f499E",
 	abiMarketplace: [

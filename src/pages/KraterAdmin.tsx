@@ -31,8 +31,9 @@ const KraterAdmin = () => {
   
     const [agent, setAgentForNewFarm] = useState<string>();
     const [nameForNewFarm, setNameForNewFarm] = useState<string>();
-  
-    const [miningUsers, setMiningUsers] = useState<string>(); //can make this an array so we can add multiple miner smart wallets at once but will need to change html below for that, may leave this part to Dima
+
+    const [noOfMinerWalletsToCreate, setNoOfMinerWalletsToCreate] = useState<string>();
+    const [miningUsers, setMiningUsers] = useState<string[]>([]); //can make this an array so we can add multiple miner smart wallets at once but will need to change html below for that, may leave this part to Dima
   
     const [owner, setOwner] = useState();
   
@@ -175,6 +176,32 @@ const KraterAdmin = () => {
   
         
     }
+
+    const renderMinerAddressInputFields = (_noOfMinerWalletsToCreate) => {
+
+      var elementsArray = [];
+
+      for(var i = 0; i < _noOfMinerWalletsToCreate; i++) {
+
+        elementsArray.push(
+
+          <section>
+
+            <label htmlFor="miningUser">Mining User Address: </label>
+            <input type="string" id="miningUser" onChange={e => setMiningUsers([...miningUsers, e.target.value])} />
+
+          </section>
+
+        )
+
+      }
+
+      console.log(elementsArray);
+      console.log(miningUsers);
+
+      return elementsArray;
+
+    } 
   
     async function handleSubmit4WhitelistingMinier(e) {
   
@@ -251,13 +278,15 @@ const KraterAdmin = () => {
 
             </form>
 
-            <h5>Create Miner SmartWallet</h5>
+            <h5>Create Miner SmartWallets</h5>
             <form onSubmit={e => {handleSubmit4WhitelistingMinier(e)}}>
 
-              <label htmlFor="miningUser">Mining User Address: </label>
-              <input type="number" id="miningUser" onChange={e => setMiningUsers(e.target.value)} />
+              <label htmlFor="NoOfMinerWalletsToCreate">Number Of Smart Wallets To Create: </label>
+              <input type="text" id="NoOfMinerWalletsToCreate" onChange={e => setNoOfMinerWalletsToCreate(e.target.value)} />
 
               <br />  
+
+              {renderMinerAddressInputFields(noOfMinerWalletsToCreate)}
 
               <input type="submit" value="Submit User Address" />
 

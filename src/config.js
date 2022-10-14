@@ -1,6 +1,6 @@
 let config = {};
 config.contract = {
-	address: "0x6c984751588d584bead41cb7ff77d28dbe8a0b6f",
+	address: "0x4ccda21d9da962e05cfb246adac7c79c6b5823de",
 	abi: [
 		{
 			"inputs": [
@@ -106,6 +106,24 @@ config.contract = {
 			"type": "function"
 		},
 		{
+			"inputs": [],
+			"name": "createMarketplace",
+			"outputs": [
+				{
+					"internalType": "address",
+					"name": "marketplaceContract",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "marketplaceTreasuryContract",
+					"type": "address"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
 			"inputs": [
 				{
 					"internalType": "address[]",
@@ -135,23 +153,28 @@ config.contract = {
 			"inputs": [
 				{
 					"internalType": "string",
-					"name": "serialNumber",
+					"name": "_serialNumber",
 					"type": "string"
 				},
 				{
 					"internalType": "string",
-					"name": "model",
+					"name": "_model",
 					"type": "string"
 				},
 				{
 					"internalType": "address",
-					"name": "currentOwner",
+					"name": "_currentOwner",
 					"type": "address"
 				},
 				{
 					"internalType": "enum KraterMaster.minerStatus",
-					"name": "status",
+					"name": "_status",
 					"type": "uint8"
+				},
+				{
+					"internalType": "string",
+					"name": "_minerAPI",
+					"type": "string"
 				}
 			],
 			"name": "mintMinerNFT",
@@ -321,7 +344,20 @@ config.contract = {
 					"type": "uint256"
 				}
 			],
-			"name": "takeTreasuryFee",
+			"name": "takeTreasuryFeeFromFarm",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "stableCoinToken",
+					"type": "address"
+				}
+			],
+			"name": "takeTreasuryFeeFromMarketplace",
 			"outputs": [],
 			"stateMutability": "nonpayable",
 			"type": "function"
@@ -402,8 +438,36 @@ config.contract = {
 					"type": "uint256"
 				}
 			],
-			"name": "TreasuryFee",
+			"name": "TreasuryFeeFromFarm",
 			"type": "event"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "minerId",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "_currentOwner",
+					"type": "address"
+				},
+				{
+					"internalType": "enum KraterMaster.minerStatus",
+					"name": "_status",
+					"type": "uint8"
+				},
+				{
+					"internalType": "string",
+					"name": "_minerAPI",
+					"type": "string"
+				}
+			],
+			"name": "updateMinerNFT",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
 		},
 		{
 			"inputs": [
@@ -601,6 +665,45 @@ config.contract = {
 				{
 					"internalType": "string",
 					"name": "",
+					"type": "string"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "minerId",
+					"type": "uint256"
+				}
+			],
+			"name": "viewMinerData",
+			"outputs": [
+				{
+					"internalType": "string",
+					"name": "_serialNumber",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "_model",
+					"type": "string"
+				},
+				{
+					"internalType": "address",
+					"name": "_currentOwner",
+					"type": "address"
+				},
+				{
+					"internalType": "enum KraterMaster.minerStatus",
+					"name": "_status",
+					"type": "uint8"
+				},
+				{
+					"internalType": "string",
+					"name": "_minerAPI",
 					"type": "string"
 				}
 			],

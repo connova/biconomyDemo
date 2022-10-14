@@ -47,10 +47,10 @@ const KraterAdmin = () => {
 
         biconomy = new Biconomy(window.ethereum as ExternalProvider, { 
       
-          apiKey: "wNVpQx3oM.b2288b97-79f6-4964-a619-c905eaf05761", 
+          apiKey: "aMKpd4RBy.71bf1b8a-6a49-4595-a472-162dc7b5cd18", 
           strictMode: false, 
           debug: true, 
-          contractAddresses: ["0x6c984751588d584bead41cb7ff77d28dbe8a0b6f"]
+          contractAddresses: ["0x4ccda21d9da962e05cfb246adac7c79c6b5823de"]
         
         });
         
@@ -195,10 +195,7 @@ const KraterAdmin = () => {
         )
 
       }
-
-      console.log(elementsArray);
-      console.log(miningUsers);
-
+      
       return elementsArray;
 
     } 
